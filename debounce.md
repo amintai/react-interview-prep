@@ -24,3 +24,35 @@ function debounce(func, delay) {
     }, delay);
   };
 }
+```
+
+How It Works
+func: The function you want to debounce.
+delay: The waiting time in milliseconds before executing the function.
+Timer Reset: Each time the debounced function is invoked, it resets the timer and starts counting again.
+Delayed Execution: The function is executed only when the timer completes without interruption.
+
+Real-Life Example: Debouncing Window Resize Event
+Let’s say we want to log a message to the console when a user stops resizing the window.
+
+```javascript
+// Create a debounced version of the function
+const logResize = debounce(() => {
+  console.log("Resize event handled after debounce delay!");
+}, 1000); // 1000ms (1 second) delay
+
+// Attach the debounced function to the resize event
+window.addEventListener("resize", logResize);
+```
+
+Practical Use Cases
+Search Boxes: Triggering an API call only after the user has stopped typing.
+Scroll Events: Loading content or handling animations only after scrolling stops.
+Form Validations: Validating inputs when the user pauses typing instead of on every keystroke.
+
+Why is Debouncing Important?
+Debouncing helps:
+
+Improve performance by reducing the frequency of function calls.
+Prevent unnecessary operations like repeated API requests or UI updates.
+Make applications more efficient and user-friendly.
